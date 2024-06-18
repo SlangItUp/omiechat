@@ -1,14 +1,27 @@
-import React from 'react'
+import React from 'react';
 
-function AuthUsername({userData, setUserData}) {
+function AuthUsername({ userData, setUserData }) {
+  const handleUsernameChange = (e) => {
+    setUserData({ ...userData, username: e.target.value });
+  };
+
   return (
-    <div className='py-2 flex flex-col'>
-      <label htmlFor ="username" className="py-2 text-slate-100 text-2xl">Username</label>
-      
-    <input onChange={(e) => setUserData({...userData, 'username': e.target.value})} value={userData.username} 
-      id="username" name="username" className= "border border-black shadow bg-slate-100 p-2 text-xl" type="text" placeholder="Enter Username"></input>
+    <div className="py-2 flex flex-col">
+      <label htmlFor="username" className="text-lg md:text-xl text-slate-100 py-2">
+        Username
+      </label>
+      <input
+        onChange={handleUsernameChange}
+        value={userData.username}
+        id="username"
+        name="username"
+        className="border border-gray-300 rounded-md p-2 text-lg md:text-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        placeholder="Enter Username"
+        required
+      />
     </div>
-  )
+  );
 }
 
-export default AuthUsername
+export default AuthUsername;
