@@ -7,7 +7,6 @@ import { useSocketContext } from "../context/SocketContext.jsx";
 function SideBar() {
   const {loading, conversations} = useGetConversations()
   const { onlineUsers } = useSocketContext()
-  console.log(onlineUsers)
   return (
     <div className="flex flex-col  pl-6 pr-2 w-64 bg-white flex-shrink-0">
       <ProfileCard />
